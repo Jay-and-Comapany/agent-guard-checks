@@ -1,0 +1,13 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {"hooks": [{"type": "command", "command": "python3 \"/absolute/path/to/agent-guard-checks/claude_adapter.py\""}]}
+    ],
+    "PreToolUse": [
+      {"matcher": "Bash", "hooks": [{"type": "command", "command": "python3 \"/absolute/path/to/agent-guard-checks/claude_adapter.py\""}]}
+    ],
+    "Stop": [
+      {"hooks": [{"type": "command", "command": "python3 \"/absolute/path/to/agent-guard-checks/claude_adapter.py\""}]}
+    ]
+  }
+}
