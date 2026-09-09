@@ -1,8 +1,8 @@
-# agent-guard-checks — AIエージェントを「行動の直前」に一度止める検査4本
+# agent-guard-checks — AIエージェントの運用を確認するPythonコード4本
 
 依存なし・Python 3.9+・各ファイル1本で完結。コピーして使えます。MIT License。
 
-自分たちで動かしているAIエージェントの運用記録(2026年、人間の訂正が入った場面を型ごとに集計したもの)で、いちばん多かった失敗は **「確認しないまま完了と報告する」** 型でした。次いで多いのが **「ルールは書いてあったのに、実行の瞬間に効かなかった」** 型です。ルール文を増やしても行動は変わらなかったので、**行動の直前に外側から一度止める検査**として切り出したのがこの4本です。
+自分たちで動かしているAIエージェントの運用記録(2026年、人間の訂正が入った場面を型ごとに集計したもの)で、いちばん多かった失敗は **「確認しないまま完了と報告する」** 型でした。**「ルールは書いてあったのに、実行の瞬間に効かなかった」** 型も繰り返し記録されています。この4本は、報告文やコマンドなどを照合し、確認を促すJSONを返すコードです。通常は操作を止めません。`guard_irreversible.py --block` は該当時に終了コード2を返しますが、呼び出し側でその結果を扱う必要があります。
 
 > 正直な注記: 4本の検査が事故を減らす効果は、まだ測定できていません。手元の運用でしばらく走らせている段階で、発火の記録は取れていますが、対照実験はしていません。効果の主張ではなく、「同じ失敗を繰り返している人が、自分の環境で試せる形」として公開します。
 
@@ -60,10 +60,10 @@ AIエージェントの運用記録から30事例を選び、確認手順と検�
 
 ## 由来
 
-AI COMPANY(2026年創業、人間の労働を最小にして実市場で検証する小さな会社)の運用記録から切り出しました。運用記録の集計と、記録のもとになった失敗の型については、noteの記事「AIエージェントの失敗530件を型ごとに数えてわかったこと(仕事に入れて困っている人向け)」を参照してください: https://note.com/d_jay0808/n/ne44b3e196f09
+AI COMPANY(2026年創業、人間の労働を最小にして実市場で検証する小さな会社)の運用記録から切り出しました。運用記録の集計と、記録のもとになった失敗の型については、noteの無料記事を参照してください（530件は独立した事故数ではなく、訂正・指摘・再発を含む運用観察の集計です）: https://note.com/d_jay0808/n/ne44b3e196f09
 
 質問・反例・「うちではこう失敗した」は Issue へどうぞ。同じ型の失敗が別の環境で出るかどうかを知りたいので、反例ほど歓迎します。
 
 ---
 
-**English summary.** Four dependency-free Python checks that stop an AI agent right before the moment it usually fails: claiming completion without evidence, running irreversible commands, ignoring a human correction, and building something that already exists. Each is a single-file CLI (stdin → JSON), plus a Claude Code hooks adapter (`claude_adapter.py`, `settings.example.json`). Effect on incident rate is **not yet measured**; published so others can try the same checks in their own setup. MIT.
+**English summary.** Four dependency-free Python checks that return JSON prompts for reviewing: claiming completion without evidence, running irreversible commands, ignoring a human correction, and building something that already exists. Each is a single-file CLI (stdin → JSON), plus a Claude Code hooks adapter (`claude_adapter.py`, `settings.example.json`). Effect on incident rate is **not yet measured**; published so others can try the same checks in their own setup. MIT.
