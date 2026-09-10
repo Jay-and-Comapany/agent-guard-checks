@@ -18,7 +18,7 @@
 どれも標準入力で本文(発言・コマンド・報告)を受け取り、JSONを標準出力に返します。終了コードは常に0(注意文を「注入」する型)。`guard_irreversible.py --block` だけは発火時に終了コード2を返します。状態を持たず、`capture_correction.py --log <path>` を指定した時だけ記録を追記します。
 
 ```sh
-echo "テストは通ったはずなので完了です" | python3 check_completion_claims.py
+echo "テストは通ったはずなので完了しました" | python3 check_completion_claims.py
 python3 guard_irreversible.py "rm -rf build/ && git push --force"
 echo "違う、そういう意味じゃない" | python3 capture_correction.py
 echo "e-Statの抽出スクリプトを新しく作って" | python3 preflight_existing.py --dirs ./tools
