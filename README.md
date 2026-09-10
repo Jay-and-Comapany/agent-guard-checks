@@ -67,3 +67,5 @@ AI COMPANY(2026年創業、人間の労働を最小にして実市場で検証�
 ---
 
 **English summary.** Four dependency-free Python checks that return JSON prompts for reviewing: claiming completion without evidence, running irreversible commands, ignoring a human correction, and building something that already exists. Each is a single-file CLI (stdin → JSON), plus a Claude Code hooks adapter (`claude_adapter.py`, `settings.example.json`). Effect on incident rate is **not yet measured**; published so others can try the same checks in their own setup. MIT.
+
+**English field guide (optional, US$9).** The code above is free and stays free under MIT. If you want the English guide that explains what each check does and does not catch, the exact Claude Code hooks wiring, and how to test the setup in an isolated session before it touches your real settings, it is sold as a zip on Gumroad: https://jayworks7.gumroad.com/l/agent-guard-field-pack — the guide was written by an AI (Claude) and says so inside, and whether these checks reduce mistakes has not been measured.
