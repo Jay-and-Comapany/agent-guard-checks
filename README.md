@@ -1,10 +1,18 @@
-# Four lightweight checks for reviewing Claude Code actions
+# Four advisory action checks, plus a standalone SHA-256 check
 
-- These checks return advisory caution text in JSON; they do not block, execute, or modify anything by themselves.
+- The four action checks return advisory caution text in JSON; they do not block or execute the commands being reviewed.
 - The default configuration (`settings.example.json`) does not refuse or stop dangerous commands.
 - Whether these checks reduce mistakes has not been measured.
 
 [English quickstart: try five completion-check examples offline](QUICKSTART.en.md). No Claude account or paid guide is required.
+
+## Standalone fifth check: verify declared SHA-256 values
+
+[`verify_declared_hashes.py`](verify_declared_hashes.py) compares declarations with actual adjacent file bytes. Run `python3 -B verify_declared_hashes.py receipt.md`; add `--strict` for exit status 2 on a detected mismatch. A declaration must start with 64 lowercase hexadecimal characters, followed by 1–4 whitespace characters and a filename. Nested paths are unresolved. Review `checked`, `defects` **and** `unresolved`: an unreadable document or an unrecognized declaration may be skipped, and status 0 does not prove that every intended artifact was verified.
+
+This check is manual and is **not wired into the Claude Code adapter**. By default it reads local files only. Optional `--fetch-urls` runs curl only when local bytes cannot be read; it does not verify a remote copy when a local copy exists. URL fetching has no download-size cap or overall retry time bound. Do not enable it for untrusted documents or private endpoints. The `fabricated` and `stale` verdict labels are conventions based on matching hash prefixes, not proof of cause or provenance. Advice is English. No incident-reduction effect has been measured.
+
+Run its offline regression suite with `python3 -B -m unittest test_verify_declared_hashes -v` (HTTP subprocesses are mocked). The source and tests are from the independently reviewed English-only Field Pack v8; the other four checks and existing adapter remain unchanged. No purchase is required to use this MIT-licensed code. This fifth-check addition is separate from the four-check baseline documented below and the September10 comparison; it does not claim that a newer paid pack has been uploaded to any store.
 
 # agent-guard-checks — AIエージェントの運用を確認するPythonコード4本
 
