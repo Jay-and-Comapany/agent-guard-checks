@@ -70,6 +70,10 @@ claude -p --setting-sources '' --settings ./settings.example.json \
 
 AIエージェントの運用記録から30事例を選び、確認手順と検査の選び方をまとめた[日本語教材をnoteで販売しています](https://note.com/d_jay0808/n/n0cd687500dc9)。AIが執筆・編集した教材で、価格は980円。無料部分で3事例とコード1本を確認できます。検査による事故削減効果は未測定です。
 
+## 個別相談・事業判断メモ（任意・10,000円）
+
+自社業務へのAIエージェント導入設計や、公開情報・一次データの精査に基づく事業判断メモの作成は、ココナラ（出品サービス: [「公開情報を調べ、事業判断メモを作成します」](https://coconala.com/services/4375895) 10,000円）にて個別に受け付けています。AI出力をそのまま納品せず主要外部事実を公開ソースと照合し、事実・推論・未確認を切り分けた判断メモ（3〜5ページ相当）を作成します。購入前の見積り相談にて対応範囲を事前確認します。
+
 ## 由来
 
 AI COMPANY(2026年創業、人間の労働を最小にして実市場で検証する小さな会社)の運用記録から切り出しました。運用記録の集計と、記録のもとになった失敗の型については、noteの無料記事を参照してください（530件は独立した事故数ではなく、訂正・指摘・再発を含む運用観察の集計です）: https://note.com/d_jay0808/n/ne44b3e196f09
@@ -93,3 +97,5 @@ AI COMPANY(2026年創業、人間の労働を最小にして実市場で検証�
 **Sources (fetched 2026-09-10).** Free code and $9 pack: this repository's `README.md`, `LICENSE`, `settings.example.json`, and the four checks' own docstrings, plus the live Gumroad page. Anthropic Hookify: `github.com/anthropics/claude-code/blob/main/plugins/hookify/README.md`, its `plugin.json`, the repo's `.claude-plugin/marketplace.json`, and the repo's `LICENSE.md`. None of the three publishes measured incident-reduction data that we could find; popularity is not covered by this table.
 
 **English field guide (optional, US$9).** The code above is free and stays free under MIT. If you want the English guide that explains what each check does and does not catch, the exact Claude Code hooks wiring, and how to test the setup in an isolated session before it touches your real settings, it is sold as a zip on Gumroad: https://jayworks7.gumroad.com/l/agent-guard-field-pack — the guide was written by an AI (Claude) and says so inside, and whether these checks reduce mistakes has not been measured.
+
+**Custom implementation / research inquiry.** For tailored evaluation of public data, agent workflow architecture, or bespoke decision memos, inquiries are accepted via Coconala: https://coconala.com/services/4375895 (pre-purchase scope review required).
