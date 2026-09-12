@@ -4,6 +4,8 @@
 - The default configuration (`settings.example.json`) does not refuse or stop dangerous commands.
 - Whether these checks reduce mistakes has not been measured.
 
+[English quickstart: try five completion-check examples offline](QUICKSTART.en.md). No Claude account or paid guide is required.
+
 # agent-guard-checks — AIエージェントの運用を確認するPythonコード4本
 
 依存なし・Python 3.9+・各ファイル1本で完結。コピーして使えます。MIT License。
