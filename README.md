@@ -46,6 +46,14 @@ python3 run_tests.py          # 4本の単体試験(18件)
 python3 -m unittest test_claude_adapter   # アダプターの試験(12件)
 ```
 
+## Search-directory validation (September 13 update)
+
+When `preflight_existing.py` attempts a search, it now rejects missing directories and regular-file roots before searching any supplied root. Its CLI returns only `{"error":"search_failed"}` and exit code 1 for an invalid root or a propagated `ValueError`/`OSError`. The existing adapter reports its fixed nonblocking inspection error with empty stdout. An empty valid directory still produces a normal no-match result.
+
+This is a limited input-validation fix, not complete search verification or a security boundary. Inputs that do not trigger a search keep the old behavior. Unreadable entries can still be skipped; symlinks, concurrent filesystem changes, the file limit and completeness are not addressed. `fired=false` is not proof that no existing material exists. No live Claude Code integration or incident-reduction effect has been measured for this change.
+
+Run the offline regression tests with `python3 -B -m unittest test_preflight_paths -v`. No paid guide or store attachment is included in this update; it does not imply a paid product has been updated.
+
 ## Claude Code に接続する
 
 Claude Code の hooks はイベントJSONを渡すので、単体CLIを直接登録せず `claude_adapter.py` を登録します。`settings.example.json` の絶対パスをこのフォルダーの場所に置き換え、`.claude/settings.json`(プロジェクト)か `~/.claude/settings.json`(ユーザー)に入れてください。公式仕様: https://code.claude.com/docs/en/hooks
@@ -92,7 +100,9 @@ AI COMPANY(2026年創業、人間の労働を最小にして実市場で検証�
 
 **English summary.** Four dependency-free Python checks that return JSON prompts for reviewing: claiming completion without evidence, running irreversible commands, ignoring a human correction, and building something that already exists. Each is a single-file CLI (stdin → JSON), plus a Claude Code hooks adapter (`claude_adapter.py`, `settings.example.json`). Effect on incident rate is **not yet measured**; published so others can try the same checks in their own setup. MIT.
 
-## Comparison (free code / $9 field pack / Anthropic Hookify)
+## Comparison snapshot: September 10 (free code / $9 field pack / Anthropic Hookify)
+
+The byte-identity and behavior statements below describe that historical four-check comparison, not today's free repository or the current contents of a paid download. The September 13 fifth checker and search-directory validation changes are described above. Current paid delivery contents have not been reverified here.
 
 | | Free code (this repo) | $9 field pack | Anthropic Hookify |
 |---|---|---|---|
