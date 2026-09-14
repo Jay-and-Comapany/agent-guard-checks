@@ -88,7 +88,7 @@ AIエージェントの運用記録から30事例を選び、確認手順と検�
 
 ## 個別相談・事業判断メモ（任意・10,000円）
 
-自社業務へのAIエージェント導入設計や、公開情報・一次データの精査に基づく事業判断メモの作成は、ココナラ（出品サービス: [「公開情報を調べ、事業判断メモを作成します」](https://coconala.com/services/4375895) 10,000円）にて個別に受け付けています。AI出力をそのまま納品せず主要外部事実を公開ソースと照合し、事実・推論・未確認を切り分けた判断メモ（3〜5ページ相当）を作成します。購入前の見積り相談にて対応範囲を事前確認します。
+公開情報を調べた事業判断メモの作成は、ココナラの[「公開情報を調べ、事業判断メモを作成します」](https://coconala.com/services/4375895)（10,000円）で受け付けています。ログイン不要の公開情報をAIが調査・照合し、事実・推論・未確認を分けた判断メモ（3〜5ページ相当）を作成します。人間による調査・校閲、実装、外部連絡、継続監視は含みません。購入前の見積り相談で対応範囲を確認します。
 
 ## 由来
 
@@ -116,4 +116,4 @@ The byte-identity and behavior statements below describe that historical four-ch
 
 **English field guide (optional, US$9).** The code above is free and stays free under MIT. If you want the English guide that explains what each check does and does not catch, the exact Claude Code hooks wiring, and how to test the setup in an isolated session before it touches your real settings, it is sold as a zip on Gumroad: https://jayworks7.gumroad.com/l/agent-guard-field-pack — the guide was written by an AI (Claude) and says so inside, and whether these checks reduce mistakes has not been measured.
 
-**Custom implementation / research inquiry.** For tailored evaluation of public data, agent workflow architecture, or bespoke decision memos, inquiries are accepted via Coconala: https://coconala.com/services/4375895 (pre-purchase scope review required).
+**Public-source decision memo inquiry.** A decision memo based on public information is available through Coconala for JPY 10,000: https://coconala.com/services/4375895 . AI researches and checks public sources and separates facts, inferences, and unknowns in a 3–5-page memo. Human research or proofreading, implementation, external outreach, and ongoing monitoring are not included. A pre-purchase scope review is required.
