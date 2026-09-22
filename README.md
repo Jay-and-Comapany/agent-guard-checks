@@ -86,6 +86,12 @@ claude -p --setting-sources '' --settings ./settings.example.json \
 
 AIエージェントの運用記録から30事例を選び、確認手順と検査の選び方をまとめた[日本語教材をnoteで販売しています](https://note.com/d_jay0808/n/n0cd687500dc9)。AIが執筆・編集した教材で、価格は980円。無料部分で3事例とコード1本を確認できます。検査による事故削減効果は未測定です。
 
+## Related service page (read-back)
+
+【PR】Jay & Co. is the seller if an order is placed on the linked Coconala page. This section was drafted with generative AI.
+
+On 2026-09-22 a public read-back of https://coconala.com/services/4413300 returned HTTP 200. Observed title includes「表記ゆれ統一・重複削除などCSV整理します」. Observed price 1,500円. The page states work uses generative AI (Claude) and Python, without human double-check, and that sales have not started yet. This repository’s free code does not require that service.
+
 ## 個別相談・事業判断メモ（任意・10,000円）
 
 公開情報を調べた事業判断メモの作成は、ココナラの[「公開情報を調べ、事業判断メモを作成します」](https://coconala.com/services/4375895)（10,000円）で受け付けています。ログイン不要の公開情報をAIが調査・照合し、事実・推論・未確認を分けた判断メモ（3〜5ページ相当）を作成します。人間による調査・校閲、実装、外部連絡、継続監視は含みません。購入前の見積り相談で対応範囲を確認します。
