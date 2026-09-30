@@ -87,6 +87,7 @@ If you want to report a false positive or missed claim, open an
 invented example, the code version, expected result, and actual JSON. Do not post
 customer data, credentials, or private logs.
 
-The [README](README.md) covers the other checks, optional hook integration, and
-optional paid explanatory material. All code needed for this walkthrough is free
-under the repository's [MIT license](LICENSE).
+The [README](README.md) covers the other checks and optional hook integration.
+The optional paid [Field Pack guide](https://jayworks7.gumroad.com/l/agent-guard-field-pack)
+provides explanatory material. All code needed for this walkthrough is free under
+the repository's [MIT license](LICENSE); no purchase is required.
