@@ -1,5 +1,7 @@
 # Four advisory action checks, plus a standalone SHA-256 check
 
+By [Jay & Co.](https://jay-and-co-official.heyhandswag.chatgpt.site). The code is free under the MIT License. The [optional English Field Pack on Gumroad](https://jayworks7.gumroad.com/l/agent-guard-field-pack) is a paid guide, not a requirement for using these checks.
+
 - The four action checks return advisory caution text in JSON; they do not block or execute the commands being reviewed.
 - The default configuration (`settings.example.json`) does not refuse or stop dangerous commands.
 - Whether these checks reduce mistakes has not been measured.
