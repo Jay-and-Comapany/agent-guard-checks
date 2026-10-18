@@ -14,7 +14,7 @@ By [Jay & Co.](https://jay-and-co-official.heyhandswag.chatgpt.site). The code i
 
 This check is manual and is **not wired into the Claude Code adapter**. By default it reads local files only. Optional `--fetch-urls` runs curl only when local bytes cannot be read; it does not verify a remote copy when a local copy exists. URL fetching has no download-size cap or overall retry time bound. Do not enable it for untrusted documents or private endpoints. The `fabricated` and `stale` verdict labels are conventions based on matching hash prefixes, not proof of cause or provenance. Advice is English. No incident-reduction effect has been measured.
 
-Run its offline regression suite with `python3 -B -m unittest test_verify_declared_hashes -v` (HTTP subprocesses are mocked). The source and tests are from the independently reviewed English-only Field Pack v8; the other four checks and existing adapter remain unchanged. No purchase is required to use this MIT-licensed code. This fifth-check addition is separate from the four-check baseline documented below and the September10 comparison; it does not claim that a newer paid pack has been uploaded to any store.
+Run its offline regression suite with `python3 -B -m unittest test_verify_declared_hashes -v` (HTTP subprocesses are mocked). The source and tests are from the independently reviewed English-only Field Pack v8. For that fifth-check addition, the other four checks and existing adapter were unchanged; that historical statement does not describe later source updates. No purchase is required to use this MIT-licensed code. This fifth-check addition is separate from the four-check baseline documented below and the September10 comparison; it does not claim that a newer paid pack has been uploaded to any store.
 
 # agent-guard-checks — AIエージェントの運用を確認するPythonコード4本
 
@@ -44,7 +44,7 @@ echo "テストは通ったはずなので完了しました" | python3 check_co
 python3 guard_irreversible.py "rm -rf build/ && git push --force"
 echo "違う、そういう意味じゃない" | python3 capture_correction.py
 echo "e-Statの抽出スクリプトを新しく作って" | python3 preflight_existing.py --dirs ./tools
-python3 run_tests.py          # 4本の単体試験(18件)
+python3 run_tests.py          # 4本の単体試験（件数は実行結果を参照）
 python3 -m unittest test_claude_adapter   # アダプターの試験(12件)
 ```
 
@@ -94,9 +94,13 @@ AIエージェントの運用記録から30事例を選び、確認手順と検�
 
 On 2026-09-22 a public read-back of https://coconala.com/services/4413300 returned HTTP 200. Observed title includes「表記ゆれ統一・重複削除などCSV整理します」. Observed price 1,500円. The page states work uses generative AI (Claude) and Python, without human double-check, and that sales have not started yet. This repository’s free code does not require that service.
 
-## 個別相談・事業判断メモ（任意・10,000円）
+## 個別相談・事業判断メモ（任意・3,000円）
 
-公開情報を調べた事業判断メモの作成は、ココナラの[「公開情報を調べ、事業判断メモを作成します」](https://coconala.com/services/4375895)（10,000円）で受け付けています。ログイン不要の公開情報をAIが調査・照合し、事実・推論・未確認を分けた判断メモ（3〜5ページ相当）を作成します。人間による調査・校閲、実装、外部連絡、継続監視は含みません。購入前の見積り相談で対応範囲を確認します。
+ココナラの[「ネットの公開情報を調べ比較表・判断メモを作ります」](https://coconala.com/services/4375895)（3,000円）では、ログイン不要の公開情報をAIが調査・照合し、事実・推論・未確認を分けた判断メモ（3〜5ページ相当）を作成します。人間による調査・校閲、実装、外部連絡、継続監視は含みません。購入前の見積り相談で対応範囲を確認します。
+
+### 2026-10-19 source update
+
+The correction check now recognizes bounded English negated-stop wording such as “don't stop,” “do not stop,” and “never stop” (including the tested optional “you” / “ever” forms) while retaining separate correction categories. The local synthetic suite passed 29 CLI cases and 38 unit tests; this is not a live Codex evaluation or a measured reduction in incidents. Paid guide/store contents were not updated or verified by this source change.
 
 ## 由来
 
@@ -124,4 +128,4 @@ The byte-identity and behavior statements below describe that historical four-ch
 
 **English field guide (optional, US$9).** The code above is free and stays free under MIT. If you want the English guide that explains what each check does and does not catch, the exact Claude Code hooks wiring, and how to test the setup in an isolated session before it touches your real settings, it is sold as a zip on Gumroad: https://jayworks7.gumroad.com/l/agent-guard-field-pack — the guide was written by an AI (Claude) and says so inside, and whether these checks reduce mistakes has not been measured.
 
-**Public-source decision memo inquiry.** A decision memo based on public information is available through Coconala for JPY 10,000: https://coconala.com/services/4375895 . AI researches and checks public sources and separates facts, inferences, and unknowns in a 3–5-page memo. Human research or proofreading, implementation, external outreach, and ongoing monitoring are not included. A pre-purchase scope review is required.
+**Public-source decision memo inquiry.** The Coconala service “ネットの公開情報を調べ比較表・判断メモを作ります” is listed at JPY 3,000: https://coconala.com/services/4375895 . AI researches and checks public sources and separates facts, inferences, and unknowns in a 3–5-page memo. Human research or proofreading, implementation, external outreach, and ongoing monitoring are not included. A pre-purchase scope review is required.
