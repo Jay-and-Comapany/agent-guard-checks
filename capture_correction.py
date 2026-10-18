@@ -24,9 +24,14 @@ PATTERNS = [
     (r'なんで|なぜ.*の[？?]|そもそも|前提|本当に[？?]|why (do|did|are) you', '前提への異議'),
     (r'止め|やめ|stop\b|待って|wait\b', '停止指示'),
 ]
+NEGATED_ENGLISH_STOP = re.compile(
+    r"\b(?:don['’]t(?:\s+you)?|do\s+not|never)\s+(?:ever\s+)?stop\b", re.I)
 
 def check(text):
-    kinds = [k for rx, k in PATTERNS if re.search(rx, text, re.I)]
+    # Suppress only the negated stop phrase; another stop request still counts.
+    stop_text = NEGATED_ENGLISH_STOP.sub('', text)
+    kinds = [k for rx, k in PATTERNS
+             if re.search(rx, stop_text if k == '停止指示' else text, re.I)]
     prompt = ''
     if kinds:
         prompt = ('【違和感の検出: ' + ' / '.join(kinds) + '】相手が何を期待していて、実際に何が出てきたのかを「○○だと思っていたが、実際は△△だった」の形で一文にし、'
